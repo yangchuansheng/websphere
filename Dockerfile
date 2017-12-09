@@ -39,7 +39,8 @@ RUN cd /usr/local/src/Websphere/WAS/; \
     sleep 10; tail -f --pid=$(ps aux|grep "setup.jar"|awk '{print $2}'|head -2|tail -1) /root/waslogs/log.txt
 
 # 准备websphere补丁程序安装包
-ADD src/C1G36ML.tar.gz /usr/local/src/UpdateInstaller/
+ADD http://default-1252251317.cossh.myqcloud.com/C1G35ML.tar.gz /usr/local/src/UpdateInstaller/
+RUN cd /usr/local/src/UpdateInstaller/; tar zxf C1G36ML.tar.gz
 
 # 创建静默补丁程序安装文件
 COPY src/responsefile_up.txt /opt/responsefile_up.txt
