@@ -48,4 +48,4 @@ COPY src/responsefile_up.txt /opt/responsefile_up.txt
 # 执行静默补丁程序安装命令
 RUN cd /usr/local/src/UpdateInstaller/UpdateInstaller/; \
     ./install -options /opt/responsefile_up.txt -silent & \
-    sleep 5; find / -name "log.txt"
+    sleep 5; tail -f --pid=$(ps aux|grep "setup.jar"|awk '{print $2}'|head -2|tail -1) /root/updilogs/log.txt
