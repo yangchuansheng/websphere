@@ -1,0 +1,12 @@
+-OPT silentInstallLicenseAcceptance="true"
+-OPT allowNonRootSilentInstall="true"
+-OPT disableOSPrereqChecking="true"
+-OPT installType="installNew"
+-OPT feature="noFeature"
+-OPT installLocation="/opt/IBM/WebSphere/AppServer"
+-OPT profileType="none"
+-OPT feature="languagepack.console.all"
+-OPT feature="languagepack.server.all"
+-OPT PROF_enableAdminSecurity="true"
+-OPT PROF_adminUserName=”admin”
+-OPT PROF_adminPassword=”admin”
