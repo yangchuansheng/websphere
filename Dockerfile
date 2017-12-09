@@ -24,7 +24,7 @@ RUN yum clean all; \
 RUN yum -y install gtk-vnc* libvncserver* tigervnc* autoconf* binutils-* compat* elfutils-libelf-devel* elfutils-libs* glibc* gcc* libXp* libstdc++-* libaio* openmotif* rpm-* sysstat* groupinstall chinese-support 
 
 # 准备安装包
-ADD src/C1G35ML.tar.gz /usr/local/src/Websphere/
+ADD http://default-1252251317.cossh.myqcloud.com/C1G35ML.tar.gz /usr/local/src/Websphere/
 
 # 创建静默安装文件
 COPY src/responsefile_nd.txt /opt/responsefile_nd.txt
