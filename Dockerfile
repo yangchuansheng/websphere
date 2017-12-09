@@ -25,6 +25,7 @@ RUN yum -y install gtk-vnc* libvncserver* tigervnc* autoconf* binutils-* compat*
 
 # 准备安装包
 ADD http://default-1252251317.cossh.myqcloud.com/C1G35ML.tar.gz /usr/local/src/Websphere/
+RUN cd /usr/local/src/Websphere/; tar zxf C1G35ML.tar.gz
 
 # 创建静默安装文件
 COPY src/responsefile_nd.txt /opt/responsefile_nd.txt
