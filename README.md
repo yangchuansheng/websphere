@@ -6,5 +6,6 @@
 ## 警综平台实际情况
 
 > Dockerfile对应的镜像 --> 10.20.3.65/daocloud/was:standalone
-<br \>
+
+<br>
 > Dockerfile.nodata对应的镜像 --> 10.20.3.65/daocloud/was:base
