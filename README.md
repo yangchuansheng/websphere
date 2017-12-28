@@ -7,4 +7,4 @@
 
 > Dockerfile对应的镜像 --> 10.20.3.65/daocloud/was:standalone
 <br />
-> Dockerfile.nodata对应的镜像 --> 10.20.3.65/daocloud/was:base
+Dockerfile.nodata对应的镜像 --> 10.20.3.65/daocloud/was:base
