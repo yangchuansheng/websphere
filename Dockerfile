@@ -26,4 +26,8 @@ RUN yum -y install gtk-vnc* libvncserver* tigervnc* autoconf* binutils-* compat*
 # 准备软件包
 ADD WebSphere.tar.gz /opt/IBM/WebSphere/
 
-# 创建
+# 创建概要文件
+RUN /opt/IBM/WebSphere/AppServer/bin/manageprofiles.sh -create -profileName test -profilePath /opt/IBM/WebSphere/AppServer/profiles/test -templatePath /opt/IBM/WebSphere/AppServer/profileTemplates/default -hostName standalone
+
+# 启动服务
+CMD /opt/IBM/WebSphere/AppServer/profiles/test/bin/startServer.sh server1 && sleep 30 && tail -f /opt/IBM/WebSphere/AppServer/profiles/test/logs/server1/SystemOut.log
