@@ -23,29 +23,7 @@ RUN yum clean all; \
 # 安装websphere依赖
 RUN yum -y install gtk-vnc* libvncserver* tigervnc* autoconf* binutils-* compat* elfutils-libelf-devel* elfutils-libs* glibc* gcc* libXp* libstdc++-* libaio* openmotif* rpm-* sysstat* groupinstall chinese-support 
 
-# 准备安装包
-ADD http://default-1252251317.cossh.myqcloud.com/C1G35ML.tar.gz /usr/local/src/Websphere/
-RUN cd /usr/local/src/Websphere/; tar zxf C1G35ML.tar.gz
+# 准备软件包
+ADD WebSphere.tar.gz /opt/IBM/WebSphere/
 
-# 创建静默安装文件
-COPY src/responsefile_nd.txt /opt/responsefile_nd.txt
-
-# 执行静默安装命令
-RUN cd /usr/local/src/Websphere/WAS/; \
-    #sed -i "1a\set -euxo pipefail" install; \ 
-    #sed -i "474s#> /dev/null 2>&1##" install; \
-    #sed -i "476s#> /dev/null 2>&1##" install; \
-    ./install -options /opt/responsefile_nd.txt -silent & \
-    sleep 10; tail -f --pid=$(ps aux|grep "setup.jar"|awk '{print $2}'|head -2|tail -1) /root/waslogs/log.txt
-
-# 准备websphere补丁程序安装包
-ADD http://default-1252251317.cossh.myqcloud.com/C1G36ML.tar.gz /usr/local/src/UpdateInstaller/
-RUN cd /usr/local/src/UpdateInstaller/; tar zxf C1G36ML.tar.gz
-
-# 创建静默补丁程序安装文件
-COPY src/responsefile_up.txt /opt/responsefile_up.txt
-
-# 执行静默补丁程序安装命令
-RUN cd /usr/local/src/UpdateInstaller/UpdateInstaller/; \
-    ./install -options /opt/responsefile_up.txt -silent & \
-    sleep 5; tail -f --pid=$(ps aux|grep "setup.jar"|awk '{print $2}'|head -2|tail -1) /root/updilogs/log.txt
+# 创建
