@@ -1,0 +1,8 @@
+FROM alpine AS data
+RUN apk update && apk --no-cache add wget
+ADD https://h5ai.yangcs.net/资源/was/UpdateInstaller.tar.gz /root/
+RUN wget https://h5ai.yangcs.net/资源/was/AppServer.tar.gz -O /root/AppServer.tar.gz
+    
+FROM registry.cn-hangzhou.aliyuncs.com/ryyan/was7.0:base
+COPY --from=data /root/UpdateInstaller.tar.gz /opt/IBM/WebSphere/
+COPY --from=data /root/AppServer.tar.gz /opt/IBM/WebSphere/
