@@ -32,7 +32,7 @@ ADD https://h5ai.yangcs.net/资源/was/AppServer.tar.gzad /opt/IBM/WebSphere/
 ADD https://h5ai.yangcs.net/资源/was/AppServer.tar.gzae /opt/IBM/WebSphere/
 ADD https://h5ai.yangcs.net/资源/was/AppServer.tar.gzaf /opt/IBM/WebSphere/
 RUN cd /opt/IBM/WebSphere/ \
-    && cat AppServer.tar.gza*|tar -zxv
+    && cat AppServer.tar.gza*|tar -zx
 
 # 创建概要文件
 RUN /opt/IBM/WebSphere/AppServer/bin/manageprofiles.sh -create -profileName test -profilePath /opt/IBM/WebSphere/AppServer/profiles/test -templatePath /opt/IBM/WebSphere/AppServer/profileTemplates/default -hostName standalone
