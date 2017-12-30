@@ -25,9 +25,14 @@ RUN yum -y install gtk-vnc* libvncserver* tigervnc* autoconf* binutils-* compat*
 
 # 准备软件包
 ADD https://h5ai.yangcs.net/资源/was/UpdateInstaller.tar.gz /opt/IBM/WebSphere/
-RUN wget https://h5ai.yangcs.net/资源/was/AppServer.tar.gz -O /opt/IBM/WebSphere/AppServer.tar.gz \
-    && cd /opt/IBM/WebSphere/ \
-    && tar zxvf AppServer.tar.gz
+ADD https://h5ai.yangcs.net/资源/was/AppServer.tar.gzaa /opt/IBM/WebSphere/
+ADD https://h5ai.yangcs.net/资源/was/AppServer.tar.gzab /opt/IBM/WebSphere/
+ADD https://h5ai.yangcs.net/资源/was/AppServer.tar.gzac /opt/IBM/WebSphere/
+ADD https://h5ai.yangcs.net/资源/was/AppServer.tar.gzad /opt/IBM/WebSphere/
+ADD https://h5ai.yangcs.net/资源/was/AppServer.tar.gzae /opt/IBM/WebSphere/
+ADD https://h5ai.yangcs.net/资源/was/AppServer.tar.gzaf /opt/IBM/WebSphere/
+RUN cd /opt/IBM/WebSphere/ \
+    && cat AppServer.tar.gza*|tar -zxv
 
 # 创建概要文件
 RUN /opt/IBM/WebSphere/AppServer/bin/manageprofiles.sh -create -profileName test -profilePath /opt/IBM/WebSphere/AppServer/profiles/test -templatePath /opt/IBM/WebSphere/AppServer/profileTemplates/default -hostName standalone
