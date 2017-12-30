@@ -24,7 +24,8 @@ RUN yum clean all; \
 RUN yum -y install gtk-vnc* libvncserver* tigervnc* autoconf* binutils-* compat* elfutils-libelf-devel* elfutils-libs* glibc* gcc* libXp* libstdc++-* libaio* openmotif* rpm-* sysstat* groupinstall chinese-support 
 
 # 准备软件包
-ADD https://h5ai.yangcs.net/资源/was/WebSphere.tar.gz /opt/IBM/WebSphere/
+ADD https://h5ai.yangcs.net/资源/was/UpdateInstaller.tar.gz /opt/IBM/WebSphere/
+ADD https://h5ai.yangcs.net/资源/was/AppServer.tar.gz /opt/IBM/WebSphere/
 
 # 创建概要文件
 RUN /opt/IBM/WebSphere/AppServer/bin/manageprofiles.sh -create -profileName test -profilePath /opt/IBM/WebSphere/AppServer/profiles/test -templatePath /opt/IBM/WebSphere/AppServer/profileTemplates/default -hostName standalone
